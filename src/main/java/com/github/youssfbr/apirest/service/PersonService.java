@@ -1,8 +1,9 @@
 package com.github.youssfbr.apirest.service;
 
-import com.github.youssfbr.apirest.entity.Person;
 import com.github.youssfbr.apirest.repository.IPersonRepository;
+import com.github.youssfbr.apirest.service.exceptions.ResourceNotFoundException;
 import com.github.youssfbr.apirest.service.interfaces.IPersonService;
+import com.github.youssfbr.apirest.entity.Person;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -24,7 +25,8 @@ public class PersonService implements IPersonService {
     @Override
     @Transactional(readOnly = true)
     public Person findPersonById(Long id) {
-        return personRepository.findById(id).get();
+        return personRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Pessoa com ID " + id + " não encontrada."));
     }
 
 }

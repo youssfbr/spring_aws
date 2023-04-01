@@ -1,4 +1,4 @@
-package com.github.youssfbr.apirest.controller;
+package com.github.youssfbr.apirest.rest.controller;
 
 import com.github.youssfbr.apirest.entity.Person;
 import com.github.youssfbr.apirest.service.PersonService;

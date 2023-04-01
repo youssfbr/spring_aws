@@ -9,7 +9,6 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-//@Table(name = "tb_alunos")
 public class Person {
 
     @Id
